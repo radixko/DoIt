@@ -10,7 +10,7 @@ import UIKit
 
 class TaskController: UIViewController {
     
-    var task = Task()
+    var task : Task? = nil
     
     var parentVC = ViewController()
     
@@ -18,12 +18,14 @@ class TaskController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        taskName?.text = task.important ?  " ❗️ \(task.name)" : task.name
+        taskName?.text = task!.importance ?  " ❗️ \(task!.name!)" : task!.name!
     }
     
     @IBAction func completeButton(_ sender: Any) {
-        parentVC.tasks.remove(at: parentVC.selectedIndex)
-        parentVC.tableView.reloadData()
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        context.delete(task!)
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
         navigationController!.popViewController(animated: true)
     }
 }

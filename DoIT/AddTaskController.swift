@@ -14,19 +14,20 @@ class AddTaskController: UIViewController {
     @IBOutlet weak var taskTextField: UITextField!
     @IBOutlet weak var importanceSwitch: UISwitch!
     @IBOutlet weak var addButton: UIButton!
-    
-    var parentVC = ViewController()
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     @IBAction func addTask(_ sender: Any){
-        let task = Task()
-        task.name = taskTextField.text!
-        task.important = importanceSwitch.isOn
-        parentVC.tasks.append(task)
-        parentVC.tableView.reloadData()
+        
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        let task = Task(context: context)
+        task.name = taskTextField.text
+        task.importance = importanceSwitch.isOn
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
         navigationController!.popViewController(animated: true)
     }
     

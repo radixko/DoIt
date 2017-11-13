@@ -17,11 +17,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tasks = makeTasks()
+        
         tableView.dataSource = self
         tableView.delegate = self
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getTasks()
+        print("-------")
+        print(tasks)
+        print("-------")
+        tableView.reloadData()
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tasks.count
     }
@@ -29,7 +39,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         let task = tasks[indexPath.row]
-        cell.textLabel?.text = task.important ?  " ❗️ \(task.name)" : task.name
+        cell.textLabel?.text = task.importance ?  " ❗️ \(task.name!)" : task.name!
         return cell
     }
     
@@ -39,37 +49,29 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         performSegue(withIdentifier: "selectTaskSeque", sender: task)
     }
     
-    func makeTasks() -> [Task] {
-        let taskOne = Task()
-        taskOne.important = true
-        taskOne.name = "First task"
-        
-        let taskTwo = Task()
-        taskTwo.important = false
-        taskTwo.name = "Second task"
-        
-        let taskThree = Task()
-        taskThree.important = false
-        taskThree.name = "Third task"
-        
-        return [taskOne, taskTwo, taskThree]
-    }
     
     @IBAction func plusTapped(_ sender: Any) {
         performSegue(withIdentifier: "addSegue", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "addSegue"{
-            let nextVC = segue.destination as! AddTaskController
-            nextVC.parentVC = self
-        }
+        
         if segue.identifier == "selectTaskSeque" {
             let nextVC = segue.destination as! TaskController
             nextVC.parentVC = self
-            nextVC.task = sender as! Task
+            nextVC.task = (sender as? Task)!
         }
     }
+    func getTasks() {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        do{
+            tasks = try context.fetch(Task.fetchRequest()) as! [Task]
+        } catch {
+            print("WTF!!?")
+        }
+        
+    }
+    
 }
 
 
