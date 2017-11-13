@@ -121,9 +121,33 @@
                     <view key="view" contentMode="scaleToFill" id="UKp-ZI-oxK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oum-5j-OfJ">
+                                <rect key="frame" x="156" y="84" width="64" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fB-Yl-yGx">
+                                <rect key="frame" x="154" y="144" width="67" height="30"/>
+                                <state key="normal" title="Complete"/>
+                                <connections>
+                                    <action selector="completeButton:" destination="0gK-mU-xHq" eventType="touchUpInside" id="Mzb-yU-7IC"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Oum-5j-OfJ" firstAttribute="top" secondItem="cHB-oE-UJJ" secondAttribute="top" constant="20" id="5if-Nf-Ay0"/>
+                            <constraint firstItem="2fB-Yl-yGx" firstAttribute="centerX" secondItem="UKp-ZI-oxK" secondAttribute="centerX" id="Ace-r5-H40"/>
+                            <constraint firstItem="2fB-Yl-yGx" firstAttribute="top" secondItem="Oum-5j-OfJ" secondAttribute="bottom" constant="30" id="dOD-BC-B3c"/>
+                            <constraint firstItem="Oum-5j-OfJ" firstAttribute="centerX" secondItem="UKp-ZI-oxK" secondAttribute="centerX" id="goe-KR-qoJ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="cHB-oE-UJJ"/>
                     </view>
+                    <connections>
+                        <outlet property="taskName" destination="Oum-5j-OfJ" id="dxs-XE-G0d"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uhH-gM-i3L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

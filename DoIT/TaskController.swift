@@ -9,5 +9,21 @@
 import UIKit
 
 class TaskController: UIViewController {
-
+    
+    var task = Task()
+    
+    var parentVC = ViewController()
+    
+    @IBOutlet weak var taskName: UILabel!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        taskName?.text = task.important ?  " ❗️ \(task.name)" : task.name
+    }
+    
+    @IBAction func completeButton(_ sender: Any) {
+        parentVC.tasks.remove(at: parentVC.selectedIndex)
+        parentVC.tableView.reloadData()
+        navigationController!.popViewController(animated: true)
+    }
 }

@@ -9,10 +9,11 @@
 import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    
     @IBOutlet weak var tableView: UITableView!
     
     var tasks: [Task] = []
+    var selectedIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +32,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.textLabel?.text = task.important ?  " ❗️ \(task.name)" : task.name
         return cell
     }
-
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let task = tasks[indexPath.row]
+        selectedIndex = indexPath.row
+        performSegue(withIdentifier: "selectTaskSeque", sender: task)
+    }
+    
     func makeTasks() -> [Task] {
         let taskOne = Task()
         taskOne.important = true
@@ -53,8 +60,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let nextVC = segue.destination as! AddTaskController
-        nextVC.parentVC = self
+        if segue.identifier == "addSegue"{
+            let nextVC = segue.destination as! AddTaskController
+            nextVC.parentVC = self
+        }
+        if segue.identifier == "selectTaskSeque" {
+            let nextVC = segue.destination as! TaskController
+            nextVC.parentVC = self
+            nextVC.task = sender as! Task
+        }
     }
 }
 
