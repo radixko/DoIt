@@ -10,7 +10,6 @@ import UIKit
 
 class AddTaskController: UIViewController {
     
-    
     @IBOutlet weak var taskTextField: UITextField!
     @IBOutlet weak var importanceSwitch: UISwitch!
     @IBOutlet weak var addButton: UIButton!
@@ -30,5 +29,4 @@ class AddTaskController: UIViewController {
         
         navigationController!.popViewController(animated: true)
     }
-    
 }

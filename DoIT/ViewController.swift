@@ -20,15 +20,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         tableView.dataSource = self
         tableView.delegate = self
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getTasks()
-        print("-------")
-        print(tasks)
-        print("-------")
         tableView.reloadData()
     }
     
@@ -49,29 +45,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         performSegue(withIdentifier: "selectTaskSeque", sender: task)
     }
     
-    
     @IBAction func plusTapped(_ sender: Any) {
         performSegue(withIdentifier: "addSegue", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if segue.identifier == "selectTaskSeque" {
             let nextVC = segue.destination as! TaskController
             nextVC.parentVC = self
             nextVC.task = (sender as? Task)!
         }
     }
-    func getTasks() {
+    
+    private func getTasks() {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         do{
             tasks = try context.fetch(Task.fetchRequest()) as! [Task]
-        } catch {
-            print("WTF!!?")
-        }
-        
+        } catch {}
     }
-    
 }
 
 
