@@ -1,0 +1,22 @@
+
+/* Class = "UIButton"; normalTitle = "Complete"; ObjectID = "2fB-Yl-yGx"; */
+"2fB-Yl-yGx.normalTitle" = "Complete";
+
+/* Class = "UILabel"; text = "Name:"; ObjectID = "2pX-yJ-kvt"; */
+"2pX-yJ-kvt.text" = "Name:";
+
+/* Class = "UIButton"; normalTitle = "ADD"; ObjectID = "4VI-nZ-EKL"; */
+"4VI-nZ-EKL.normalTitle" = "ADD";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "Oum-5j-OfJ"; */
+"Oum-5j-OfJ.text" = "Name";
+
+/* Class = "UINavigationItem"; title = "Do It"; ObjectID = "WZs-wy-E9a"; */
+"WZs-wy-E9a.title" = "Poznamky";
+
+/* Class = "UILabel"; text = "Important:"; ObjectID = "al5-uH-ppB"; */
+"al5-uH-ppB.text" = "Important:";
+
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "cVG-fP-KkX"; */
+"cVG-fP-KkX.title" = "Back";
+

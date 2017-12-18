@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  DoIT
+
+  Created by Radoslav Hlinka on 18/12/2017.
+  Copyright © 2017 Radoslav Hlinka. All rights reserved.
+*/
+
+"empty_view_title" = "Poznamky";
+"empty_view_text" = "Nemas ziadne poznamky.";

@@ -10,9 +10,9 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    private let image = UIImage(named: "DSC_0351.JPG")!.withRenderingMode(.alwaysTemplate)
-    private let topMessage = "Notes"
-    private let bottomMessage = "You don't have any notes yet. All your notes will show up here."
+    
+    private let topMessage = NSLocalizedString("empty_view_title", comment: "")
+    private let bottomMessage = NSLocalizedString("empty_view_text", comment: "cmt")
     
     func setupEmptyBackgroundView() {
         let emptyBackgroundView = EmptyBackgroundView(top: topMessage, bottom: bottomMessage)

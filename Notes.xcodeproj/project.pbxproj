@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6802E49C1FE6820E00060918 /* EmptyBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6802E49B1FE6820E00060918 /* EmptyBackgroundView.swift */; };
+		683278A91FE7B0DE00D4ECAB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 683278A71FE7B0DE00D4ECAB /* Localizable.strings */; };
 		688A22321FB976F80055401C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688A22311FB976F80055401C /* AppDelegate.swift */; };
 		688A22341FB976F80055401C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688A22331FB976F80055401C /* ViewController.swift */; };
 		688A22371FB976F80055401C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 688A22351FB976F80055401C /* Main.storyboard */; };
@@ -24,6 +25,12 @@
 		2EF7700B872298D3C6DA4607 /* Pods-DoIT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoIT.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DoIT/Pods-DoIT.debug.xcconfig"; sourceTree = "<group>"; };
 		362E2F6148D71B6DA275F892 /* Pods_DoIT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoIT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6802E49B1FE6820E00060918 /* EmptyBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyBackgroundView.swift; sourceTree = "<group>"; };
+		683278A31FE7AE2A00D4ECAB /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/Main.strings; sourceTree = "<group>"; };
+		683278A41FE7AE2A00D4ECAB /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		683278A61FE7AF5700D4ECAB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		683278AA1FE7B0F400D4ECAB /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = DoIT/sk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		683278AB1FE7B0F500D4ECAB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = DoIT/en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		683278AD1FE7B22800D4ECAB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		688A222E1FB976F80055401C /* DoIT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoIT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		688A22311FB976F80055401C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		688A22331FB976F80055401C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +93,7 @@
 				688A223B1FB976F80055401C /* Assets.xcassets */,
 				688A223D1FB976F80055401C /* LaunchScreen.storyboard */,
 				688A22401FB976F80055401C /* Info.plist */,
+				683278A71FE7B0DE00D4ECAB /* Localizable.strings */,
 				688A22381FB976F80055401C /* DoIT.xcdatamodeld */,
 			);
 			path = DoIT;
@@ -147,13 +155,14 @@
 					};
 				};
 			};
-			buildConfigurationList = 688A22291FB976F80055401C /* Build configuration list for PBXProject "DoIT" */;
+			buildConfigurationList = 688A22291FB976F80055401C /* Build configuration list for PBXProject "Notes" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				sk,
 			);
 			mainGroup = 688A22251FB976F80055401C;
 			productRefGroup = 688A222F1FB976F80055401C /* Products */;
@@ -171,6 +180,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				688A223F1FB976F80055401C /* LaunchScreen.storyboard in Resources */,
+				683278A91FE7B0DE00D4ECAB /* Localizable.strings in Resources */,
 				688A223C1FB976F80055401C /* Assets.xcassets in Resources */,
 				688A22371FB976F80055401C /* Main.storyboard in Resources */,
 			);
@@ -249,10 +259,21 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		683278A71FE7B0DE00D4ECAB /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				683278AA1FE7B0F400D4ECAB /* sk */,
+				683278AB1FE7B0F500D4ECAB /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		688A22351FB976F80055401C /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				688A22361FB976F80055401C /* Base */,
+				683278A31FE7AE2A00D4ECAB /* sk */,
+				683278A61FE7AF5700D4ECAB /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -261,6 +282,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				688A223E1FB976F80055401C /* Base */,
+				683278A41FE7AE2A00D4ECAB /* sk */,
+				683278AD1FE7B22800D4ECAB /* en */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -272,6 +295,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -329,6 +353,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -412,7 +437,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		688A22291FB976F80055401C /* Build configuration list for PBXProject "DoIT" */ = {
+		688A22291FB976F80055401C /* Build configuration list for PBXProject "Notes" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				688A22411FB976F80055401C /* Debug */,
