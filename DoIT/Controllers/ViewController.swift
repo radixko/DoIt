@@ -10,6 +10,15 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    private let image = UIImage(named: "DSC_0351.JPG")!.withRenderingMode(.alwaysTemplate)
+    private let topMessage = "Notes"
+    private let bottomMessage = "You don't have any notes yet. All your notes will show up here."
+    
+    func setupEmptyBackgroundView() {
+        let emptyBackgroundView = EmptyBackgroundView(top: topMessage, bottom: bottomMessage)
+        tableView.backgroundView = emptyBackgroundView
+    }
+    
     @IBOutlet weak var tableView: UITableView!
     
     var tasks: [Task] = []
@@ -17,9 +26,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupTableView()
+        setupEmptyBackgroundView()
+    }
+    
+    func setupTableView() {
         tableView.dataSource = self
         tableView.delegate = self
+        view.setNeedsLayout()
+        view.layoutIfNeeded()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,6 +44,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if tasks.count == 0 {
+            tableView.separatorStyle = .none
+            tableView.backgroundView?.isHidden = false
+        } else {
+            tableView.separatorStyle = .singleLine
+            tableView.backgroundView?.isHidden = true
+        }
+        
         return tasks.count
     }
     
